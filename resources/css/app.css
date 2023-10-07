@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+pre.sf-dump {
+    @apply invert bg-transparent dark:invert-0 !important;
+}
