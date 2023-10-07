@@ -1,5 +1,4 @@
 import Echo from "laravel-echo";
-import React from "react";
 
 import {Payload} from "../types/Payload";
 import Pusher from "pusher-js";
@@ -38,22 +37,6 @@ export default class SocketManager {
         this.setConnected = setConnected;
     }
 
-    private handlePayload = (event: NewPayloadEvent) => {
-        this.setMessages((prevMessages: Payload[]) => [...prevMessages, <Payload>event.payload]);
-    };
-
-    private handleConnect = () => {
-        this.setConnected(true);
-    };
-
-    private handleDisconnect = () => {
-        this.setConnected(false);
-    };
-
-    private handleClear = () => {
-        this.clearMessages();
-    };
-
     public connect = () => {
         this.echo.connect();
         this.echo.channel("payloads")
@@ -68,5 +51,26 @@ export default class SocketManager {
 
     public disconnect = () => {
         this.echo.leave("payloads");
+    };
+
+    private handlePayload = (event: NewPayloadEvent) => {
+        this.setMessages((prevMessages: Payload[]) =>
+            [{
+                ...event.payload,
+                date: new Date(event.payload.date)
+            }].concat(prevMessages)
+        )
+    };
+
+    private handleConnect = () => {
+        this.setConnected(true);
+    };
+
+    private handleDisconnect = () => {
+        this.setConnected(false);
+    };
+
+    private handleClear = () => {
+        this.clearMessages();
     };
 }
