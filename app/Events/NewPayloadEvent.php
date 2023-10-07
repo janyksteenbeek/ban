@@ -32,7 +32,7 @@ class NewPayloadEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('payloads')
+            new Channel('payloads'),
         ];
     }
 

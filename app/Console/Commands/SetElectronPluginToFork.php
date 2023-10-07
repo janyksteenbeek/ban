@@ -29,13 +29,13 @@ class SetElectronPluginToFork extends Command
     {
         $this->info('Setting Electron plugin to fork...');
 
-        $file = base_path() . '/vendor/nativephp/electron/resources/js/package.json';
+        $file = base_path().'/vendor/nativephp/electron/resources/js/package.json';
         $package = json_decode(file_get_contents($file), true);
 
         $package['dependencies']['@nativephp/electron-plugin'] = 'git://github.com/janyksteenbeek/nativephp-electron-plugin.git#add-app-port-variable';
 
         file_put_contents($file, json_encode($package, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
-        $this->info('Electron plugin set to fork successfully (' . self::FORK . ')');
+        $this->info('Electron plugin set to fork successfully ('.self::FORK.')');
     }
 }

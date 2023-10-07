@@ -13,7 +13,7 @@ class ClearPayloadsController extends Controller
         Payload::query()->delete();
 
         return response()->json([
-            'message' => 'Payloads cleared successfully!'
+            'message' => 'Payloads cleared successfully!',
         ]);
     }
 }
