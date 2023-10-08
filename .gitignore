@@ -20,3 +20,5 @@ yarn-error.log
 bun.lockb
 /dist
 .DS_Store
+composer.lock
+package-lock.json
