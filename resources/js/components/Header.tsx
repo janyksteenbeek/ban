@@ -13,10 +13,11 @@ export default function Header(props: HeaderParams) {
                     onClick={props.toggleAlwaysOnTop}
                     type="button"
                     className={
-                        "no-drag rounded-full bg-white px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:shadow-md hover:cursor-pointer" + (props.alwaysOnTop ? " bg-gray-800 text-gray-100 dark:bg-gray-900 dark:text-gray-100" : "")
+                        "no-drag rounded-full px-2 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:shadow-md hover:cursor-pointer" + (props.alwaysOnTop ? " bg-gray-800 text-gray-100 ring-gray-200 hover:bg-gray-900 dark:bg-gray-700 dark:text-gray-100 dark:ring-gray-600" : " bg-white")
                     }>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                         stroke="currentColor" className="size-6">
+                         stroke="currentColor"
+                         className={"size-5" + (props.alwaysOnTop ? " text-gray-100" : " text-gray-900")}>
                         <path strokeLinecap="round" strokeLinejoin="round"
                               d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6"/>
                     </svg>
