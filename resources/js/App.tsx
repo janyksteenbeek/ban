@@ -60,7 +60,6 @@ function App() {
             {!defaultPortUsed && (
                 <NotRayPort/>
             )}
-            {window.location.port}
             <Header clearMessages={clearMessages} alwaysOnTop={alwaysOnTop}
                     toggleAlwaysOnTop={() => setAlwaysOnTop(!alwaysOnTop)}/>
             <div
