@@ -25,10 +25,15 @@ class NativeAppServiceProvider implements ProvidesPhpIni
                 ->separator()
                 ->link('https://github.com/sponsors/janyksteenbeek', 'Sponsor @janyksteenbeek')
                 ->link('https://x.com/janyksteenbeek', '@janyksteenbeek on X')
+                ->link('https://janyk.nl/?via=ban-about', 'janyk.nl')
             )
             ->register();
         Window::open()
+            ->title(config('app.name'))
+            ->titleBarHidden()
+            ->blendBackgroundBehindWindow()
             ->width(1100)
+            ->minWidth(400)
             ->height(800);
     }
 

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+pre {
+    @apply text-gray-900 dark:text-gray-100;
+}
+
 pre.sf-dump {
-    @apply invert bg-transparent dark:invert-0 !important;
+    @apply invert bg-transparent dark:invert-0 text-gray-500 dark:text-gray-100 z-0 !important;
+}
+
+.drag-bar {
+    -webkit-app-region: drag;
+}
+
+.no-drag {
+    -webkit-app-region: no-drag;
 }

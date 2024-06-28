@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -27,6 +28,17 @@ class ShellLinkRequest extends FormRequest
                 'required',
                 'string',
                 'url:https',
+                new class implements ValidationRule {
+
+                    public function validate(string $attribute, mixed $value, Closure $fail): void
+                    {
+                        $whitelist = config('shell-whitelist');
+
+                        if (!in_array(parse_url($value, PHP_URL_HOST), $whitelist)) {
+                            $fail('The :attribute must be a valid URL from the whitelist.');
+                        }
+                    }
+                },
             ],
         ];
     }

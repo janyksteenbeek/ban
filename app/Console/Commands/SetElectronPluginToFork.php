@@ -30,11 +30,11 @@ class SetElectronPluginToFork extends Command
         $this->info('Setting Electron plugin to fork...');
 
         $file = base_path().'/vendor/nativephp/electron/resources/js/package.json';
-        $package = json_decode(file_get_contents($file), true);
+        $package = json_decode(file_get_contents($file), true, 512, JSON_THROW_ON_ERROR);
 
         $package['dependencies']['@nativephp/electron-plugin'] = 'git://github.com/janyksteenbeek/nativephp-electron-plugin.git#add-app-port-variable';
 
-        file_put_contents($file, json_encode($package, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        file_put_contents($file, json_encode($package, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
 
         $this->info('Electron plugin set to fork successfully ('.self::FORK.')');
     }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-screen">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,7 +10,7 @@
     @vite('resources/js/main.tsx')
     @vite('resources/css/app.css')
 </head>
-<body class="dark:bg-gray-700 dark:text-white">
-<div id="ban-root"></div>
+<body class="dark:text-white bg-transparent h-screen">
+<div id="ban-root" class="h-screen"></div>
 </body>
 </html>

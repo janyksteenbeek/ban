@@ -31,4 +31,14 @@ export class Api {
             method: 'DELETE'
         });
     }
+
+    static setAlwaysOnTop(alwaysOnTop: boolean) {
+        return fetch('/api/always-on-top', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({top: alwaysOnTop})
+        });
+    }
 }

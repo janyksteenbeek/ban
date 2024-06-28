@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AlwaysOnTopController;
 use App\Http\Controllers\Api\ClearPayloadsController;
 use App\Http\Controllers\Api\PayloadController;
 use App\Http\Controllers\Api\ShellLinkController;
@@ -14,4 +15,5 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/payloads', PayloadController::class);
     Route::delete('/payloads', ClearPayloadsController::class);
     Route::post('/shell-link', ShellLinkController::class);
+    Route::post('/always-on-top', AlwaysOnTopController::class);
 });

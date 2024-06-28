@@ -1,5 +1,5 @@
 export default function ConnectionLost(props: { onClick: () => void }) {
-    return <div className="flex items-center justify-center bg-gray-900 px-6 py-2.5">
+    return <div className="flex items-center justify-center bg-gray-900 px-6 py-2.5 fixed bottom-0 left-0 w-full z-50">
         <p className="text-sm leading-6 text-white flex items-center">
             <svg viewBox="0 0 2 2" className="mx-2 inline h-2 w-2 text-orange-300 animate-pulse fill-current"
                  aria-hidden="true">
